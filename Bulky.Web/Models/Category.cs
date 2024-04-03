@@ -9,9 +9,9 @@ namespace Bulky.Web.Models
         public int Id { get; set; }
         [Required]
 
-       // [DisplayName("Category Name")]
+        [DisplayName("Category Name")]
         public string Name { get; set; }
-        //[DisplayName("Display Order")]
+        [DisplayName("Display Order")]
         public int DisplayOrder { get; set; }
     }
 }

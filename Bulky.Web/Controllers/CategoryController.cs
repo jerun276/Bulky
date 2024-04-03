@@ -9,17 +9,24 @@ namespace Bulky.Web.Controllers
         private readonly ApplicationDbContext _db;
         public CategoryController(ApplicationDbContext db)
         {
-            _db = db;   
+            _db = db;
         }
         public IActionResult Index()
         {
-            List<Category> objCategorylist= _db.Categories.ToList();
+            List<Category> objCategorylist = _db.Categories.ToList();
             return View(objCategorylist);
         }
 
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Category obj)
+        {
+            _db.Categories.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
